@@ -1,37 +1,14 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Student management system</title>
-    <!-- Font Awesome -->
-<link
-  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
-  rel="stylesheet"
-/>
-<!-- Google Fonts -->
-<link
-  href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
-  rel="stylesheet"
-/>
-<!-- MDB -->
-<link
-  href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/9.1.0/mdb.min.css"
-  rel="stylesheet"
-/>
+<?php include('header.php') ?>
 
-</head>
-<body>
     <!--navbar-->
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <div class="container-fluid">
-    <a class="navbar-brand" href="#">StudentMS</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+  <nav class="navbar navbar-expand-lg navbar-info bg-primary">  
+    <a class="navbar-brand" href="#"><b>StudentMS<b></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-333" aria-controls="navbarSupportedContent-333" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse" id="navbarNavDropdown">
-      <ul class="navbar-nav">
-        <li class="nav-item">
+    <div class="collapse navbar-collapse" id="navbarSupportedContent-333">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
           <a class="nav-link active" aria-current="page" href="#">Home</a>
         </li>
         <li class="nav-item">
@@ -40,22 +17,30 @@
         <li class="nav-item">
           <a class="nav-link" href="#">Pricing</a>
         </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Dropdown link
-          </a>
-          <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-            <li><a class="dropdown-item" href="#">Action</a></li>
-            <li><a class="dropdown-item" href="#">Another action</a></li>
-            <li><a class="dropdown-item" href="#">Something else here</a></li>
-          </ul>
-        </li>
-        <li class="nav-item dropdown"></li>
       </ul>
-    </div>
-  </div>
-</nav>
-    <!--navbar-->
+      <ul class="navbar-nav ms-auto nav-flex-icons">
+              <li class="nav-item dropdown">
+                <?php if(isset($_SESSION['login'])){ ?>
+             
+                  <a class="nav-link dropdown-toggle"  id="navbarSupportedContent-333"  data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  <i> class="fas fa-user mr-2"</i>Account
+                 </a>
+                  <div class="dropdown-menu dropdown-menu-right dropdown-default" aria-labelledby="#navbarDropdownMenuLink-333"
+                  class="dropdown-menu" aria-labelledby="#navbarDropdownMenuLink">
+                    <a class="dropdown-item" href="#">Action</a>
+                    <a class="dropdown-item" href="#">Another action</a>
+                    <a class="dropdown-item" href="#">logout</a>
+                  </div>  
+                  <?php }
+                  else{
+                    ?>
+                    <a href="login.php" class="nav-link"><i class="fa fa-user mr-2"></i> login</a>
+                  <?php } ?>
+                </li> 
+          </ul>
+        </div>
+      </nav>
+    
 
     <!--Admission form-->
   <div class="d-flex shadow" style="height:400px;background:skyblue;">
@@ -101,11 +86,13 @@
       </div>
     </div>
   </div>
-    <!--Admission form-->
 
+  
+    
+    <!--courses-->
     <section class="py-5">
-      <div>
-        <h2 class="text-center">our courses</h2>
+      <div class="text-center mb-5">
+        <h2 class="font-weight-bold">our courses</h2>
       </div>
         <!--course1-->
       <div class="container">
@@ -167,10 +154,124 @@
       </div>
 
     </section>
+    
+    <!--teaches-->
+    <section class="py-5 bg-light background">
+          <div class="text-center mb-8">
+        <h2 class="font-weight-bold ">our teachers</h2>
+      </div>
+          <div class="container">
+            <div class="row">
+            <div class="col-lg-3">
+                <div class="card">
+                  <div class="col-7 position-absolute" style="top:-50px">
+                          <img src="./assets/images/teacher1.jpg" alt="" class="mw-100 bodered rounded-circle">
+                      </div>
+                  <div class="card-body pt-5 mt-4">
+                      <h5 class="card-title">teachers name</h5>
+                      <p class="card-text">
+                        <b>courses: </b> 5<br>
+                        <b>Rating :</b><i class="fa fa-star text-warning"></i><i class="fa fa-star text-warning"></i><i class="fa fa-star text-warning"></i><i class="fa fa-star text-warning"></i>
+                      </p>
+                  </div>
+                </div>
+              </div>  
+
+                <div class="col-lg-3">
+                <div class="card">
+                  <div class="col-7 position-absolute" style="top:-50px">
+                          <img src="./assets/images/teacher1.jpg" alt="" class="mw-100 bodered rounded-circle">
+                      </div>
+                  <div class="card-body pt-5 mt-4">
+                      <h5 class="card-title">teachers name</h5>
+                      <p class="card-text">
+                        <b>courses: </b> 5<br>
+                        <b>Rating :</b><i class="fa fa-star text-warning"></i><i class="fa fa-star text-warning"></i><i class="fa fa-star text-warning"></i><i class="fa fa-star text-warning"></i>
+                      </p>
+                  </div>
+                </div>
+              </div>  
+
+              <div class="col-lg-3">
+                <div class="card">
+                  <div class="col-7 position-absolute" style="top:-50px">
+                          <img src="./assets/images/teacher1.jpg" alt="" class="mw-100 bodered rounded-circle">
+                      </div>
+                  <div class="card-body pt-5 mt-4">
+                      <h5 class="card-title">teachers name</h5>
+                      <p class="card-text">
+                        <b>courses: </b> 5<br>
+                        <b>Rating :</b><i class="fa fa-star text-warning"></i><i class="fa fa-star text-warning"></i><i class="fa fa-star text-warning"></i><i class="fa fa-star text-warning"></i>
+                      </p>
+                  </div>
+                </div>
+              </div>  
+
+              <div class="col-lg-3">
+                <div class="card">
+                  <div class="col-7 position-absolute" style="top:-50px">
+                          <img src="./assets/images/teacher1.jpg" alt="" class="mw-100 bodered rounded-circle">
+                      </div>
+                  <div class="card-body pt-5 mt-4">
+                      <h5 class="card-title">teachers name</h5>
+                      <p class="card-text">
+                        <b>courses: </b> 5<br>
+                        <b>Rating :</b><i class="fa fa-star text-warning"></i><i class="fa fa-star text-warning"></i><i class="fa fa-star text-warning"></i><i class="fa fa-star text-warning"></i>
+                      </p>
+                  </div>
+                </div>
+              </div>  
+            </div>
+          </div>
+    </section>
+
+    <!--footer-->
+      <footer style="background:url(./assets/images/footer.jpg) center no-repeat">
+        <div class="py-5 text-white" style="background:#000000bb">
+            <div class="container-fluid">
+              <div class="row">
+                <div class="col-lg-4">
+                    <h4> useful links </h4>
+
+                    <ul class="fa-ul">
+                          <li><a href="#" class="text-light"><i class="fa-li fa fa-angle-right"></i>list icon</a></li>
+                          <li><a href="#" class="text-light"><i class="fa-li fa fa-angle-right"></i>list icon</a></li>
+                          <li><a href="#" class="text-light"><i class="fa-li fa fa-angle-right"></i>list icon</a></li>
+                          <li><a href="#" class="text-light"><i class="fa-li fa fa-angle-right"></i>list icon</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-lg-4">
+                    <h4> social media </h4>
+
+                    <spam class="fa-stack">
+                      <i class="fa fa-circle fa-stack-2x"></i>
+                      <i class="fab fa-facebook-f fa-stack-1x fa-inverse text-dark"></i>
+                    </spam>
+
+                    <spam class="fa-stack">
+                      <i class="fa fa-circle fa-stack-2x"></i>
+                      <i class="fab fa-instagram  fa-stack-1x fa-inverse text-dark"></i>
+                    </spam>
+
+                    <spam class="fa-stack">
+                      <i class="fa fa-circle fa-stack-2x"></i>
+                      <i class="fab fa-twitter fa-stack-1x fa-inverse text-dark"></i>
+                    </spam>
+                    <spam class="fa-stack">
+                      <i class="fa fa-circle fa-stack-2x"></i>
+                      <i class="fab fa-youtube fa-stack-1x fa-inverse text-dark"></i>
+                    </spam>
+                </div>
+              </div>
+            </div>
+        </div>
+      </footer>
+
+      <section class="py-2 bg-dark text-light center">
+        <div class="container-fluid">
+          copyright 2020-2026 All Rights Reserved . <a href="#" class="text-light"> StudentMS </a>
+        </div>
+      </section>
     <!-- MDB -->
-<script
-  type="text/javascript"
-  src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/9.1.0/mdb.umd.min.js"
-></script>
-</body>
-</html>
+<?php include('footer.php') ?>
