@@ -7,8 +7,9 @@
         if($email == 'admin@example.com' && $pass == 'admin@sms')
         {
                 session_start();
-                $_SESSION['login']==true;
+                $_SESSION['login']=true;
                 header('location:../index.php');
+                exit();
         }
         else{
             echo 'Invalid credential';
