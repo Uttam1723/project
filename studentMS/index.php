@@ -1,46 +1,63 @@
 <?php include('header.php') ?>
 
     <!--navbar-->
-  <nav class="navbar navbar-expand-lg navbar-info bg-primary">  
-    <a class="navbar-brand" href="#"><b>StudentMS<b></a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-333" aria-controls="navbarSupportedContent-333" aria-expanded="false" aria-label="Toggle navigation">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#"><b>SMS</b></a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent-333">
-      <ul class="navbar-nav mr-auto">
-        <li class="nav-item active">
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
           <a class="nav-link active" aria-current="page" href="#">Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Features</a>
+          <a class="nav-link" href="#">About Us</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Pricing</a>
+          <a class="nav-link" href="#">Courses</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Events</a>
+        </li>
+        <!-- You can re-enable dropdowns like below if needed -->
+        
+        <li class="nav-item dropdown position-relative">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+            aria-expanded="false">
+            Dropdown
+          </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="#">Action</a></li>
+            <li><a class="dropdown-item" href="#">Another action</a></li>
+          </ul>
+        </li>
+        
+      </ul>
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+        <li class="nav-item dropdown position-relative">
+          <?php if (isset($_SESSION['login'])) { ?>
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+            aria-expanded="false">
+            <i class="fas fa-user me-2"></i>Account
+          </a>
+          <ul class="dropdown-menu dropdown-menu-end">
+            <li><a class="dropdown-item" href="#">Dashboard</a></li>
+            <li><a class="dropdown-item" href="#">Another action</a></li>
+            <li><a class="dropdown-item" href="logout.php">Logout</a></li>
+          </ul>
+          <?php } else { ?>
+          <a href="login.php" class="nav-link"><i class="fa fa-user me-2"></i>User login</a>
+          <?php } ?>
         </li>
       </ul>
-      <ul class="navbar-nav ms-auto nav-flex-icons">
-              <li class="nav-item dropdown">
-                <?php if(isset($_SESSION['login'])){ ?>
-             
-                  <a class="nav-link dropdown-toggle"  id="navbarSupportedContent-333"  data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  <i> class="fas fa-user mr-2"</i>Account
-                 </a>
-                  <div class="dropdown-menu dropdown-menu-right dropdown-default" aria-labelledby="#navbarDropdownMenuLink-333"
-                  class="dropdown-menu" aria-labelledby="#navbarDropdownMenuLink">
-                    <a class="dropdown-item" href="#">Action</a>
-                    <a class="dropdown-item" href="#">Another action</a>
-                    <a class="dropdown-item" href="#">logout</a>
-                  </div>  
-                  <?php }
-                  else{
-                    ?>
-                    <a href="login.php" class="nav-link"><i class="fa fa-user mr-2"></i> login</a>
-                  <?php } ?>
-                </li> 
-          </ul>
-        </div>
-      </nav>
-    
+    </div>
+  </div>
+</nav>
+
 
     <!--Admission form-->
   <div class="d-flex shadow" style="height:400px;background:skyblue;">
