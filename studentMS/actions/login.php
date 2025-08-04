@@ -8,10 +8,11 @@
         {
                 session_start();
                 $_SESSION['login']=true;
-                header('location:../index.php');
+                header('location:../dashboard.php');
                 exit();
         }
         else{
             echo 'Invalid credential';
         }
+
     }
