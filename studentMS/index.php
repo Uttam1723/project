@@ -239,37 +239,39 @@
             <div class="container-fluid">
               <div class="row">
                 <div class="col-lg-4">
-                    <h4> useful links </h4>
+                    <h4> Useful links </h4>
 
                     <ul class="fa-ul">
-                          <li><a href="#" class="text-light"><i class="fa-li fa fa-angle-right"></i>list icon</a></li>
-                          <li><a href="#" class="text-light"><i class="fa-li fa fa-angle-right"></i>list icon</a></li>
-                          <li><a href="#" class="text-light"><i class="fa-li fa fa-angle-right"></i>list icon</a></li>
-                          <li><a href="#" class="text-light"><i class="fa-li fa fa-angle-right"></i>list icon</a></li>
+                          <li><a href="index.php" class="text-light"><i class="fa-li fa fa-angle-right"></i>Home</a></li>
+                          <li><a href="about_us.php" class="text-light"><i class="fa-li fa fa-angle-right"></i>about_us</a></li>
+                          <li><a href="#" class="text-light"><i class="fa-li fa fa-angle-right"></i>courses</a></li>
+                          <li><a href="#" class="text-light"><i class="fa-li fa fa-angle-right"></i>Events</a></li>
                     </ul>
                 </div>
 
-                <div class="col-lg-4">
+                <div class="col-lg-3">
                     <h4> social media </h4>
-
+                  <a href="https://www.facebook.com/profile.php?id=100072146707509/">
                     <spam class="fa-stack">
                       <i class="fa fa-circle fa-stack-2x"></i>
                       <i class="fab fa-facebook-f fa-stack-1x fa-inverse text-dark"></i>
-                    </spam>
+                    </spam>Facebook</a><br> 
 
+                    <a href="https://www.instagram.com/uttam_gondaliya_1/">
                     <spam class="fa-stack">
                       <i class="fa fa-circle fa-stack-2x"></i>
                       <i class="fab fa-instagram  fa-stack-1x fa-inverse text-dark"></i>
-                    </spam>
-
+                    </spam>instagram</a><br>
+                    <a href="https://x.com/Uttam_045/">
                     <spam class="fa-stack">
                       <i class="fa fa-circle fa-stack-2x"></i>
                       <i class="fab fa-twitter fa-stack-1x fa-inverse text-dark"></i>
-                    </spam>
+                    </spam>Twitter</a><br>
+                    <a href="https://www.youtube.com/uttam gondaliya">
                     <spam class="fa-stack">
                       <i class="fa fa-circle fa-stack-2x"></i>
                       <i class="fab fa-youtube fa-stack-1x fa-inverse text-dark"></i>
-                    </spam>
+                    </spam> Youtube</a>
                 </div>
               </div>
             </div>
