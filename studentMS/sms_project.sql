@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 29, 2025 at 12:24 PM
+-- Generation Time: Aug 05, 2025 at 07:32 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.1.25
 
@@ -69,6 +69,29 @@ INSERT INTO `classes` (`id`, `title`, `section`, `added_date`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `courses`
+--
+
+CREATE TABLE `courses` (
+  `id` int(11) NOT NULL,
+  `name` text NOT NULL,
+  `category` text NOT NULL,
+  `duration` text NOT NULL,
+  `date` datetime NOT NULL DEFAULT current_timestamp(),
+  `image` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `courses`
+--
+
+INSERT INTO `courses` (`id`, `name`, `category`, `duration`, `date`, `image`) VALUES
+(1, 'HTML', 'web-design-and-development', '2 hour', '2025-08-05 00:00:00', 'course1.jpg'),
+(2, 'C & C++ development', 'app-development', '15 hours', '2025-08-05 00:00:00', 'course3.jpg');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `sections`
 --
 
@@ -102,6 +125,12 @@ ALTER TABLE `classes`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `courses`
+--
+ALTER TABLE `courses`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `sections`
 --
 ALTER TABLE `sections`
@@ -122,6 +151,12 @@ ALTER TABLE `accounts`
 --
 ALTER TABLE `classes`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
+-- AUTO_INCREMENT for table `courses`
+--
+ALTER TABLE `courses`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT for table `sections`
