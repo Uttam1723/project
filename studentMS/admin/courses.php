@@ -1,59 +1,58 @@
-<?php include('../includes/config.php') ?>
-<?php include('header.php') ?>
-<?php include('sidebar.php') ?>
+
 <?php
-    if(isset($_POST['submit']))
-    {
-     
-       $name = $_POST['name'];
-       $category = $_POST['category'];
-       $duration = $_POST['duration'];
-       $image = $_FILES['thumbnail']['name'];
-       $today = date('Y-m-d');
+ob_start(); // Start output buffering to prevent "headers already sent" warning
 
-       $target_dir = "dist/uploads/";
-       $target_file = $target_dir . basename($_FILES['thumbnail']['name']);
-       $imageFiletype = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
-       $uploadOk = 1;
+include('../includes/config.php');
+include('header.php');
+include('sidebar.php');
 
-      // checking if file already exist 
-       if (file_exists($target_file))
-       {
-          echo "Sorry , file already exists.";
-          $uploadOk = 0;
-       }
+if (isset($_POST['submit'])) {
+    $name = $_POST['name'];
+    $category = $_POST['category'];
+    $duration = $_POST['duration'];
+    $image = $_FILES['thumbnail']['name'];
+    $today = date('Y-m-d');
 
-       // check file size 
-       if($_FILES['thumbnail']['size']>> 500000){
-        echo "Sorry, your file is too large";
+    $target_dir = "dist/uploads/";
+    $target_file = $target_dir . basename($image);
+    $imageFiletype = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
+    $uploadOk = 1;
+
+    // Check if file already exists
+    if (file_exists($target_file)) {
+        echo "Sorry, file already exists.";
         $uploadOk = 0;
-       }
-
-       //Allow certain fie type 
-       if($imageFiletype != "jpg" && $imageFiletype != "png" && $imageFiletype != "jpeg" && $imageFiletype != "gif")
-        {
-          echo "Sorry , only jpg , jpeg , PNG , and GIF files are allowed ";
-          $uploadOk = 0;
-        } 
-
-        // check if $uploadOk is set to o by an error 
-        if($uploadOk == 0)
-        {
-          echo "Sorry , your file was not uploaded";
-        }
-        else 
-        {
-          if(move_uploaded_file($_FILES["thumbnail"]["tmp_name"],$target_file)){
-             mysqli_query($db_conn,"INSERT INTO courses(`name`,`category`,`duration`,`image` ,`date`) VALUES('$name' ,' $category' ,'$duration' ,
-        '$image' ,'$today')") or die(mysqli_error($db_conn));
-          }
-          else {
-            echo "sorry , there was an error uploading your file .";
-          }
-        }
-        header('Location :,courses.php');
-        $_SESSION['success_msg'] = "Course has been uploaded successfuly"; 
     }
+
+    // Corrected file size check
+    if ($_FILES['thumbnail']['size'] > 500000) {
+        echo "Sorry, your file is too large.";
+        $uploadOk = 0;
+    }
+
+    // Allow certain file types
+    if (!in_array($imageFiletype, ['jpg', 'jpeg', 'png', 'gif'])) {
+        echo "Sorry, only JPG, JPEG, PNG, and GIF files are allowed.";
+        $uploadOk = 0;
+    }
+
+    if ($uploadOk == 0) {
+        echo "Sorry, your file was not uploaded.";
+    } else {
+        if (move_uploaded_file($_FILES["thumbnail"]["tmp_name"], $target_file)) {
+            mysqli_query($db_conn, "INSERT INTO courses(name, category, duration, image, date) 
+                VALUES('$name', '$category', '$duration', '$image', '$today')") 
+                or die(mysqli_error($db_conn));
+
+            $_SESSION['success_msg'] = "Course has been uploaded successfully";
+
+            header('Location: courses.php'); // Fixed redirect
+            exit(); // Always exit after header
+        } else {
+            echo "Sorry, there was an error uploading your file.";
+        }
+    }
+}
 ?>
   <!-- Content Header (Page header) -->
     <div class="content-header">
