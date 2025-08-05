@@ -8,7 +8,7 @@
         {
                 session_start();
                 $_SESSION['login']=true;
-                header('location:../dashboard.php');
+                header('location:../admin/dashboard.php');
                 exit();
         }
         else{
@@ -16,3 +16,4 @@
         }
 
     }
+
